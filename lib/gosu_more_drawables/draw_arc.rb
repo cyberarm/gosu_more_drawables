@@ -1,7 +1,38 @@
 module Gosu
-def self.draw_arc(x, y, z, radius, percentage = 1.0, segments = nil, thickness = 4, color = Gosu::Color::WHITE)
-    segments ||= 128
-
+  # Draw an arc around the point x and y.
+  #
+  # Color accepts the following: *Gosu::Color*, *Array* (with 2 colors), or a *Hash* with keys: _from:_ and _to:_ both colors.
+  #
+  # With a *Gosu::Color* the arc will be painted with color
+  #
+  # With an *Array* the first *Gosu::Color* with be the innermost color and the last *Gosu::Color* with be the outermost color
+  #
+  # With a *Hash* the arc will smoothly transition from the start of the arc to the end
+  # @example
+  #   # Using a Hash
+  #   Gosu.draw_arc(100, 100, 50, 0.5, 128, 4, {from: Gosu::Color::BLUE, to: Gosu::Color::GREEN}, 0, :default)
+  #
+  #   # Using an Array
+  #   Gosu.draw_arc(100, 100, 50, 0.5, 128, 4, [Gosu::Color::BLUE, Gosu::Color::GREEN], 0, :default)
+  #
+  #   # Using a Gosu::Color
+  #   Gosu.draw_arc(100, 100, 50, 0.5, 128, 4, Gosu::Color::BLUE, 0, :default)
+  #
+  #
+  # @param x X position.
+  # @param y Y position.
+  # @param radius radius of arc, in pixels.
+  # @param percentage how complete the segment is, __0.0 is 0% and _1.0_ is 100%.
+  # @param segments how many segments for arc, more will appear smoother, less will appear jagged.
+  # @param thickness how thick arc will be.
+  # @param color [Gosu::Color, Array<Gosu::Color, Gosu::Color>, Hash{from: start_color, to: end_color}] color or colors to draw the arc with.
+  # @param z Z position.
+  # @param mode blend mode.
+  #
+  # @note _thickness_ is subtracted from radius, meaning that the arc will grow towards the origin, not away from it.
+  #
+  # @return [void]
+  def self.draw_arc(x, y, radius, percentage = 1.0, segments = 128, thickness = 4, color = Gosu::Color::WHITE, z = 0, mode = :default)
     segments = 360.0 / segments
 
     return if percentage == 0.0

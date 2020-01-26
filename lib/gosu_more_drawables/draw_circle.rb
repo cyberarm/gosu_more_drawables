@@ -1,6 +1,17 @@
 module Gosu
-  def self.draw_circle(x, y, z, radius, color = Gosu::Color::WHITE, step_size = 36)
-    step_size = (360.0/step_size).floor
+  ##
+  # Draw a filled circled around point X and Y.
+  #
+  # @param x X position.
+  # @param y Y position.
+  # @param radius radius of circle, in pixels.
+  # @param step_size resolution of circle, more steps will apear smoother, less will appear jagged.
+  # @param color color to draw circle with.
+  # @param mode blend mode.
+  #
+  # @return [void]
+  def self.draw_circle(x, y, radius, step_size = 36, color = Gosu::Color::WHITE, z = 0, mode = :default)
+    step_size = (360.0 / step_size).floor
 
     0.step(359, step_size) do |angle|
       angle2 = angle + step_size
@@ -13,7 +24,7 @@ module Gosu
       Gosu.draw_triangle(
         point_lx, point_ly, color,
 	      point_rx, point_ry, color,
-	      x, y, color, z
+	      x, y, color, z, mode
       )
     end
   end
