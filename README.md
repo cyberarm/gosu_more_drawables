@@ -38,7 +38,7 @@ end
 DemoWindow.new.show
 ```
 
-![screenshot of example](https://raw.githubusercontent.com/cyberarm/gosu_more_drawables/master/screenshots/screenshot.png)
+![screenshot of example](https://raw.githubusercontent.com/cyberarm/gosu_more_drawables/master/media/screenshot.png)
 
 ## Development
 
