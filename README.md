@@ -1,8 +1,6 @@
 # GosuMoreDrawables
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gosu_more_drawables`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Adds `Gosu.draw_circle` and `Gosu.draw_arc` to the Gosu game library.
 
 ## Installation
 
@@ -22,7 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+``` ruby
+require "gosu"
+require "gosu_more_drawables"
+
+class DemoWindow < Gosu::Window
+  def initialize
+    super(500, 500, false)
+  end
+
+  def draw
+    Gosu.draw_circle(250, 250, 200, 128, Gosu::Color.rgb(0, 200, 0))
+    Gosu.draw_arc(250, 250, 200, 1.0, 128, 4, Gosu::Color.rgba(127, 64, 0, 100))
+  end
+end
+
+DemoWindow.new.show
+```
 
 ## Development
 
@@ -32,7 +46,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/gosu_more_drawables.
+Bug reports and pull requests are welcome on GitHub at https://github.com/cyberarm/gosu_more_drawables.
 
 ## License
 
