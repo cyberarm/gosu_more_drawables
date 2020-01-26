@@ -57,7 +57,8 @@ module Gosu
           point_a_left_x, point_a_left_y, color.first,
           point_b_left_x, point_b_left_y, color.last,
           point_a_right_x, point_a_right_y, color.first,
-          point_b_right_x, point_b_right_y, color.last
+          point_b_right_x, point_b_right_y, color.last,
+          z, mode
         )
       elsif color.is_a?(Hash)
         start_color = color[:from]
@@ -80,14 +81,16 @@ module Gosu
           point_a_left_x, point_a_left_y, color_a,
           point_b_left_x, point_b_left_y, color_a,
           point_a_right_x, point_a_right_y, color_b,
-          point_b_right_x, point_b_right_y, color_b
+          point_b_right_x, point_b_right_y, color_b,
+          z, mode
         )
       else
         Gosu.draw_quad(
           point_a_left_x, point_a_left_y, color,
           point_b_left_x, point_b_left_y, color,
           point_a_right_x, point_a_right_y, color,
-          point_b_right_x, point_b_right_y, color
+          point_b_right_x, point_b_right_y, color,
+          z, mode
         )
       end
     end
