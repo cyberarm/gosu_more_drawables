@@ -22,7 +22,7 @@ module Gosu
   # @param x X position.
   # @param y Y position.
   # @param radius radius of arc, in pixels.
-  # @param percentage how complete the segment is, __0.0 is 0% and _1.0_ is 100%.
+  # @param percentage how complete the segment is, _0.0_ is 0% and _1.0_ is 100%.
   # @param segments how many segments for arc, more will appear smoother, less will appear jagged.
   # @param thickness how thick arc will be.
   # @param color [Gosu::Color, Array<Gosu::Color, Gosu::Color>, Hash{from: start_color, to: end_color}] color or colors to draw the arc with.
