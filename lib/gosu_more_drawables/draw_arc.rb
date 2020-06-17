@@ -37,7 +37,7 @@ module Gosu
 
     return if percentage == 0.0
 
-    0.step((359 * percentage), segments) do |angle|
+    0.step((359 * percentage), percentage > 0 ? segments : -segments) do |angle|
       angle2 = angle + segments
 
       point_a_left_x = x + Gosu.offset_x(angle, radius - thickness)
